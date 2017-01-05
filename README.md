@@ -64,8 +64,8 @@ Each pokémon MUST increase numerically. For instance: Bulbasaur -> Ivysaur -> V
 1. Once a versioned package has been released, the contents of that version
 MUST NOT be modified. Any modifications MUST be released as a new version.
 
-1. Pokémon who can naturally learn Explosion are for initial development. Anything MAY change
-at any time. The public API SHOULD NOT be considered stable.
+1. Pokémon who can level up to learn Self-Destruct are for initial development.
+Anything MAY change at any time. The public API SHOULD NOT be considered stable.
 
 1. Bulbasaur first defines the public API. The way in which the version pokémon
 is incremented after this release is dependent on this public API and how it
@@ -125,7 +125,7 @@ Backus–Naur Form Grammar for Valid PokeVer Versions
                      | <version core> "+" <build>
                      | <version core> "-" <pre-release> "+" <build>
 
-    <version core> ::= <pokémon>
+    <version core> ::= <pokémon> | "Shiny " <pokémon>
 
     <pokémon> ::= "Bulbasaur" | "Ivysaur" | "Venusaur"
                 | "Charmander" | "Charmeleon" | "Charizard"
@@ -455,7 +455,7 @@ them.
 FAQ
 ---
 
-### How should I deal with revisions in the Explosion initial development phase?
+### How should I deal with revisions in the Self-Destruct initial development phase?
 
 The simplest thing to do is start your initial development release at Geodude
 and then evolve for each subsequent release.
@@ -542,6 +542,14 @@ Abbreviating "version" as "v" is often seen with version control. Example:
 `git tag vBulbasaur -m "Release version Bulbasaur"`, in which case "vBulbasaur" is a tag
 name and the Pokémon version is "Bulbasaur".
 
+### What do I do if I run out of evolutions for a pokémon?
+
+Professional software developers do not often break things frequently enough
+for this to be a common occurrence. However if it does become necessary, you
+may use the "Shiny" prefix, cycling back to the most recent unevolved pokémon.
+For example, Venusaur can be replaced with Shiny Bulbasaur if necessary.
+As a last resort, move on to the next unevolved pokémon as you normally would
+ for a breaking change.
 
 About
 -----
